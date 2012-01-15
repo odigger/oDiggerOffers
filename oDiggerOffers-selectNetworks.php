@@ -1,18 +1,20 @@
-<? include_once('offers202-config.php'); 
+<? include_once('oDiggerOffers-config.php'); 
 
+$isDebug = null != $_GET["debug"] && true == $_GET["debug"] ? true : false;
 
-
-//build the get query for the offers202 restful api
+//build the get query for the oDiggerOffers restful api
 $get = array();
-$get['apiKey'] = TRACKING202_API_KEY;
+$get['apiKey'] = ODIGGER_OFFERS_API_KEY;
 $query = http_build_query($get);
 
 
 
-//build the offers202 api string
-$url = TRACKING202_API_URL . "/offers202/getNetworks?$query";
+//build the oDiggerOffers api string
+$networksSearchPath = "/o202/getNetworks?$query";
+$url = ODIGGER_OFFERS_API_URL . $networksSearchPath;
 
 $xml = getUrl($url);
+
 $getNetworks = convertXmlIntoArray($xml);
 $getNetworks = $getNetworks['getNetworks'];
 $networks = $getNetworks['networks'][0]['network'];
@@ -24,7 +26,7 @@ echo "<select name='networkId' id='networkId' onchange='setOffersPref();'>";
 			
 		$html = array_map('htmlentities', $networks[$x]);
 		
-		if ($_SESSION['offers202_network_id'] == $html['networkId']) 	$selected = 'SELECTED';
+		if ($_SESSION['oDiggerOffers_network_id'] == $html['networkId']) 	$selected = 'SELECTED';
 		else 																$selected = '';
 		
 		echo "<option $selected value='{$html['networkId']}'>{$html['networkName']} ({$html['networkOffers']})</option>";

@@ -4,7 +4,7 @@ function getUrl($url, $requestType = 'GET', $timeout = 10) {
 	
 	$curl = new curl();
 	$curl->curl($url);
-	
+
 	if( $requestType == "POST" ) {
 	 
 		$postString = "";

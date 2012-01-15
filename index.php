@@ -1,25 +1,25 @@
-<? include_once('offers202-config.php'); ?>
+<? include_once('oDiggerOffers-config.php'); ?>
 
 <html>
 <head>
-	<title>Offers202</title>
+	<title>oDigger Offers</title>
 	<script type="text/javascript" src="static/prototype.js" ></script>
-	<script type="text/javascript" src="static/offers202.js" ></script>
-	<link href="static/offers202.css" rel="stylesheet" type="text/css"/>
+	<script type="text/javascript" src="static/oDiggerOffers.js" ></script>
+	<link href="static/oDiggerOffers.css" rel="stylesheet" type="text/css"/>
 </head>
 <body>
 
-	<h2 class="offers_welcome"><span>Welcome To Offers202</span></h2>
-	<p class="offers_headline">Here you can search for offers across mutiple affiliate networks.</p>
+	<h2 class="offers_welcome"><span>Welcome To oDigger Offers</span></h2>
+	<p class="offers_headline">Search for affiliate offers across affiliate networks</p>
 	
 	
 	<form id="offers_form" class="offers_form" onsubmit="return false;">
 		<table class="offers_form_table" cellspacing='0' cellpadding='5'>
 			<tr>
 				<th>Search:</th>
-				<td><input class="query" type="text" name="query" value="<? echo htmlentities($_SESSION['offers202_query']); ?>"></td>
+				<td><input class="query" type="text" name="query" value="<? echo htmlentities($_SESSION['oDiggerOffers_query']); ?>"></td>
 	            
-				<td><? include_once('offers202-selectNetworks.php'); ?></td>
+				<td><? include_once('oDiggerOffers-selectNetworks.php'); ?></td>
 			
 	           	 	<td><input class="search" type="submit" onclick="setOffersPref();" value="Search Offers"/></td>
 		            <td>
@@ -30,14 +30,14 @@
 		                    <div class="s-pop-close"><a href="#" onclick="document.getElementById('s-pop1').style.display='none';">Close</a></div>
 		                    
 		                    <div class="s-pop-content">
-		                        <p style="margin-bottom: 20px;"><strong>What Is Offers202?</strong><br/>
-							Offers202 allows you to find offers across various different affiliate networks.  To use it simple type in a search term or leave it blank and hit "Search Offers."  Our service will then grab all of the offers related to your search.  You can sort the columns by clicking on the column header names.  You can also search for offers by each particular affiliate network, simply select the network from the drop-down list to do this. </p>
+		                        <p style="margin-bottom: 20px;"><strong>What Is oDigger Offers?</strong><br/>
+							oDigger Offers allows you to find offers across various different affiliate networks.  To use it simple type in a search term or leave it blank and hit "Search Offers."  Our service will then grab all of the offers related to your search.  You can sort the columns by clicking on the column header names.  You can also search for offers by each particular affiliate network, simply select the network from the drop-down list to do this. </p>
 							
-						<p style="margin-bottom: 20px;"><strong>Offers202 API</strong><br/>
-						This Offers202 service is using the Tracking202 202 API to pull the information.  There are several different APIs that Offers202 provides that developers can use to build apps on top.  This application with-in-side of Prosper202 is an example of what you can build with the Offers202 API.   If you would like to learn more about our API and become a Tracking202 developer please visit: <a href="http://developers.tracking202.com">developers.tracking202.com</a>.</p>
+						<p style="margin-bottom: 20px;"><strong>oDigger Offers API</strong><br/>
+						This oDigger Offers service is using the oDigger Offers API to pull the information. To become an oDigger developer, please contact us at <a href="mailto:support@odigger.com">support@oDigger.com</a> </p>
 						
-						<p><strong>Offers202 Support</strong><br/>
-							 If you need any help with Offers202, please visit our <a href="http://prosper202.com/forum/">support forum</a>.</p>
+						<p><strong>oDigger Offers Support</strong><br/>
+							 If you need any help with oDigger Offers, please contact us at <a href='mailto:support@odigger.com'>support@odigger.com</a>.</p>
 							
 		                	</div>
 		                </div>
@@ -47,10 +47,10 @@
 		                    
 		                    <div class="s-pop-content">
 		                    		<p style="margin-bottom: 20px;"><strong>Phrase search ("")</strong><br>
-							By putting double quotes around a set of words, you are telling Offers202 to consider the exact words in that exact order without any change. Offers202 already uses the order and the fact that the words are together as a very strong signal and will stray from it only for a good reason, so quotes are usually unnecessary. By insisting on phrase search you might be missing good results accidentally. For example, a search for <nobr>[ <span class="code">"Alexander Bell"</span> ]</nobr> (with quotes) will miss the pages that refer to Alexander <em>G.</em> Bell.</p>
+							By putting double quotes around a set of words, you are telling oDigger Offers to consider the exact words in that exact order without any change. oDigger Offers already uses the order and the fact that the words are together as a very strong signal and will stray from it only for a good reason, so quotes are usually unnecessary. By insisting on phrase search you might be missing good results accidentally. For example, a search for <nobr>[ <span class="code">"Alexander Bell"</span> ]</nobr> (with quotes) will miss the pages that refer to Alexander <em>G.</em> Bell.</p>
 							
 							<p><strong>The OR operator</strong><br>
-							Offers202's default behavior is to consider all the words in a search. If you want to specifically allow <em>either</em> one of several words, you can use the OR operator (note that you have to type 'OR' in ALL CAPS). For example, <nobr>[ <span class="code">San Francisco Giants 2004 OR 2005</span> ]</nobr> will give you results about either one of these years, whereas <nobr>[ <span class="code">San Francisco Giants 2004 2005</span> ]</nobr> (without the OR) will show pages that include both years on the same page. The symbol <strong>|</strong> can be substituted for OR. (The AND operator, by the way, is the default, so it is not needed.)</p>
+							oDigger Offers's default behavior is to consider all the words in a search. If you want to specifically allow <em>either</em> one of several words, you can use the OR operator (note that you have to type 'OR' in ALL CAPS). For example, <nobr>[ <span class="code">San Francisco Giants 2004 OR 2005</span> ]</nobr> will give you results about either one of these years, whereas <nobr>[ <span class="code">San Francisco Giants 2004 2005</span> ]</nobr> (without the OR) will show pages that include both years on the same page. The symbol <strong>|</strong> can be substituted for OR. (The AND operator, by the way, is the default, so it is not needed.)</p>
 						</ul>
 		                	</div>
 		                </div>
@@ -61,8 +61,12 @@
 	</form>
 	
 	
-	<div id="m-content"></div>
+	<div id="m-content-wrapper">
+		<div id="m-content"></div>
+		
+		<div class="attribution">Powered by <a href="http://oDigger.com">oDigger.com</a></div>
+	</div>
 	<script type="text/javascript">getOffers();</script>
 	
-	<div style="position: absolute; bottom: 10px; right: 10px; font-size: 11px;">Powered by <a href="http://offers202.com">Offers202</a></div>
+	
 </body>

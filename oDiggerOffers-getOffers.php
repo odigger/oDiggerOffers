@@ -1,11 +1,11 @@
-<? include_once('offers202-config.php'); 
+<? include_once('oDiggerOffers-config.php'); 
 
 
 //print_r_html($_SESSION);
 
 //set the preferences
-if ($_POST['query']) 	$_SESSION['offers202_query'] = $_POST['query'];
-if ($_POST['limit']) 		$_SESSION['offers202_limit'] = $_POST['limit'];
+if ($_POST['query']) 	$_SESSION['oDiggerOffers_query'] = $_POST['query'];
+if ($_POST['limit']) 		$_SESSION['oDiggerOffers_limit'] = $_POST['limit'];
 
 
 
@@ -16,31 +16,31 @@ switch ($_POST['order']) {
 	case "offerType":
 	case "offerUpdatedDate":	
 	case "offerStartDate":	
-		$_SESSION['offers202_order'] = $_POST['order'];
+		$_SESSION['oDiggerOffers_order'] = $_POST['order'];
 		break;
 }
 
 switch ($_POST['by']) {
 	case "DESC":
-		$_SESSION['offers202_by'] = "DESC";
+		$_SESSION['oDiggerOffers_by'] = "DESC";
 		break;
 	case "ASC":
-		$_SESSION['offers202_by'] = "ASC";
+		$_SESSION['oDiggerOffers_by'] = "ASC";
 		break;	
 }
 
 
 
-//build the get query for the offers202 restful api
+//build the get query for the oDiggerOffers restful api
 $get = array();
-$get['apiKey'] = TRACKING202_API_KEY;
-if ($_SESSION['offers202_network_id']) $get['networkId'] = ($_SESSION['offers202_network_id']);
-if ($_SESSION['offers202_query']) $get['q'] = ($_SESSION['offers202_query']);
-if ($_SESSION['offers202_limit']) $get['limit'] = ($_SESSION['offers202_limit']);
-if ($_SESSION['offers202_order']) $get['order'] = ($_SESSION['offers202_order']);
-if ($_SESSION['offers202_by']) $get['by'] = ($_SESSION['offers202_by']);
-if (!$_SESSION['offers202_by']) $_SESSION['offers202_by'] = 'DESC';
-if (!$_SESSION['offers202_limit']) $_SESSION['offers202_limit'] = 100;
+$get['apiKey'] = ODIGGER_OFFERS_API_KEY;
+if ($_SESSION['oDiggerOffers_network_id']) $get['network_id'] = ($_SESSION['oDiggerOffers_network_id']);
+if ($_SESSION['oDiggerOffers_query']) $get['q'] = ($_SESSION['oDiggerOffers_query']);
+if ($_SESSION['oDiggerOffers_limit']) $get['limit'] = ($_SESSION['oDiggerOffers_limit']);
+if ($_SESSION['oDiggerOffers_order']) $get['order'] = ($_SESSION['oDiggerOffers_order']);
+if ($_SESSION['oDiggerOffers_by']) $get['by'] = ($_SESSION['oDiggerOffers_by']);
+if (!$_SESSION['oDiggerOffers_by']) $_SESSION['oDiggerOffers_by'] = 'DESC';
+if (!$_SESSION['oDiggerOffers_limit']) $_SESSION['oDiggerOffers_limit'] = 100;
 if ($_POST['page']) $get['offset'] = $get['limit'] * ($_POST['page']-1);
 $query = http_build_query($get);
  
@@ -48,8 +48,8 @@ $query = http_build_query($get);
 
 
 
-//build the offers202 api string
-$url = TRACKING202_API_URL . "/offers202/getOffers?$query";
+//build the oDiggerOffers api string
+$url = ODIGGER_OFFERS_API_URL . "/o202/getOffers?$query";
 $xml = getUrl($url);
 $getOffers = convertXmlIntoArray($xml);
 
@@ -121,51 +121,51 @@ $navBar .= "</div> <div class='clear'></div>";
 	<form id="offers_limit_form">
 		Show:
 		<select class="limit" name="limit" onchange="setOffersLimitPref();">
-			<option <? if ($_SESSION['offers202_limit'] == 10) echo ' SELECTED '; ?> value="10">10 results</option>
-			<option <? if ($_SESSION['offers202_limit'] == 25) echo ' SELECTED '; ?> value="25">25 results</option>
-			<option <? if ($_SESSION['offers202_limit'] == 50) echo ' SELECTED '; ?> value="50">50 results</option>
-			<option <? if ($_SESSION['offers202_limit'] == 75) echo ' SELECTED '; ?> value="75">75 results</option>
-			<option <? if (($_SESSION['offers202_limit'] == 100) or (!$_SESSION['offers202_limit'])) echo ' SELECTED '; ?> value="100">100 results</option>
-			<option <? if ($_SESSION['offers202_limit'] == 150) echo ' SELECTED '; ?> value="150">150 results</option>
-			<option <? if ($_SESSION['offers202_limit'] == 200) echo ' SELECTED '; ?> value="200">200 results</option>
-			<option <? if ($_SESSION['offers202_limit'] == 250) echo ' SELECTED '; ?> value="250">250 results</option>
-			<option <? if ($_SESSION['offers202_limit'] == 500) echo ' SELECTED '; ?> value="500">500 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 10) echo ' SELECTED '; ?> value="10">10 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 25) echo ' SELECTED '; ?> value="25">25 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 50) echo ' SELECTED '; ?> value="50">50 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 75) echo ' SELECTED '; ?> value="75">75 results</option>
+			<option <? if (($_SESSION['oDiggerOffers_limit'] == 100) or (!$_SESSION['oDiggerOffers_limit'])) echo ' SELECTED '; ?> value="100">100 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 150) echo ' SELECTED '; ?> value="150">150 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 200) echo ' SELECTED '; ?> value="200">200 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 250) echo ' SELECTED '; ?> value="250">250 results</option>
+			<option <? if ($_SESSION['oDiggerOffers_limit'] == 500) echo ' SELECTED '; ?> value="500">500 results</option>
 		</select>
 	</form>
 </div><? 
 
 
-$networkNameBy = $_SESSION['offers202_by'];
-$offerNameBy = $_SESSION['offers202_by'];
-$offerPayoutBy = $_SESSION['offers202_by'];
-$offerTypeBy = $_SESSION['offers202_by'];
-$offerUpdatedDateBy = $_SESSION['offers202_by'];
+$networkNameBy = $_SESSION['oDiggerOffers_by'];
+$offerNameBy = $_SESSION['oDiggerOffers_by'];
+$offerPayoutBy = $_SESSION['oDiggerOffers_by'];
+$offerTypeBy = $_SESSION['oDiggerOffers_by'];
+$offerUpdatedDateBy = $_SESSION['oDiggerOffers_by'];
 
 
-switch ($_SESSION['offers202_order']) { 
+switch ($_SESSION['oDiggerOffers_order']) { 
 	case "networkName":
-		if ($_SESSION['offers202_by'] == 'ASC')	{	$networkNameArrow = '&#9650;';		$networkNameBy = 'DESC'; }
+		if ($_SESSION['oDiggerOffers_by'] == 'ASC')	{	$networkNameArrow = '&#9650;';		$networkNameBy = 'DESC'; }
 		else 										{	$networkNameArrow = '&#9660;';		$networkNameBy = 'ASC'; }
 		break;
 	case "offerName":
-		if ($_SESSION['offers202_by'] == 'ASC')	{	$offerNameArrow = '&#9650;';			$offerNameBy = 'DESC'; }
+		if ($_SESSION['oDiggerOffers_by'] == 'ASC')	{	$offerNameArrow = '&#9650;';			$offerNameBy = 'DESC'; }
 		else 										{	$offerNameArrow = '&#9660;';			$offerNameBy = 'ASC'; }
 		break;
 	case "offerPayout":
-		if ($_SESSION['offers202_by'] == 'ASC')	{	$offerPayoutArrow = '&#9650;';		$offerPayoutBy = 'DESC'; }
+		if ($_SESSION['oDiggerOffers_by'] == 'ASC')	{	$offerPayoutArrow = '&#9650;';		$offerPayoutBy = 'DESC'; }
 		else 										{	$offerPayoutArrow = '&#9660;';		$offerPayoutBy = 'ASC'; }
 		break;
 	case "offerType":
-		if ($_SESSION['offers202_by'] == 'ASC')	{	$offerTypeArrow = '&#9650;';			$offerTypeBy = 'DESC'; }
+		if ($_SESSION['oDiggerOffers_by'] == 'ASC')	{	$offerTypeArrow = '&#9650;';			$offerTypeBy = 'DESC'; }
 		else 										{	$offerTypeArrow = '&#9660;';			$offerTypeBy = 'ASC'; }
 		break;
 	case "offerUpdatedDate":	
-		if ($_SESSION['offers202_by'] == 'ASC')	{	$offerUpdatedDateArrow = '&#9650;';	$offerUpdatedDateBy = 'DESC'; }
+		if ($_SESSION['oDiggerOffers_by'] == 'ASC')	{	$offerUpdatedDateArrow = '&#9650;';	$offerUpdatedDateBy = 'DESC'; }
 		else 										{	$offerUpdatedDateArrow = '&#9660;';	$offerUpdatedDateBy = 'ASC'; }
 		break;
 	default:
 	case "offerStartDate":	
-		if ($_SESSION['offers202_by'] == 'ASC')	{	$offerStartDateArrow = '&#9650;';		$offerStartDateBy = 'DESC'; }
+		if ($_SESSION['oDiggerOffers_by'] == 'ASC')	{	$offerStartDateArrow = '&#9650;';		$offerStartDateBy = 'DESC'; }
 		else 										{	$offerStartDateArrow = '&#9660;';		$offerStartDateBy = 'ASC'; }
 		break;
 }
@@ -203,9 +203,12 @@ switch ($_SESSION['offers202_order']) {
 			
 			if ($y == 1) { $class = 'alt'; $y = 0; } else { $class = ''; $y = 1; }
 			
+			if ($html['offerSponsored'] == 'true')  { $class .= ' sponsored ';	$sponsored_text = '<div class="sponsored-offer-text">Sponsored</div>';}
+			else 									{ $class .= ''; 			$sponsored_text = '';}
+			
 			echo "<tr class='$class'>";
 				echo "<td class='' style='white-space: nowrap;'>{$html['networkName']}</td>";
-				echo "<td class=''>{$html['offerName']}</td>";
+				echo "<td class=''>{$sponsored_text} {$html['offerName']}</td>";
 				echo "<td class=' center'>{$html['offerPayout']}</td>";
 				echo "<td class=' center'>{$html['offerType']}</td>";
 				//echo "<td class=' center'>{$html['offerTargetingSummary']}</td>";

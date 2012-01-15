@@ -4,13 +4,13 @@
 //you can get your api key by going to http://developers.tracking202.com/
 $api_key = 'pasteYourApiKeyHere';
 
-DEFINE('TRACKING202_API_KEY', $api_key);
-DEFINE('TRACKING202_API_URL', 'https://api.tracking202.com');
+DEFINE('ODIGGER_OFFERS_API_KEY', $api_key);
+DEFINE('ODIGGER_OFFERS_API_URL', 'http://odigger.com/api');
 
 //include the functions
-include_once('offers202-apiFunctions.php');
-include_once('offers202-xmlToArrayClass.php');
-include_once('offers202-curlClass.php');
+include_once('oDiggerOffers-apiFunctions.php');
+include_once('oDiggerOffers-xmlToArrayClass.php');
+include_once('oDiggerOffers-curlClass.php');
 
 session_start();
 

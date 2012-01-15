@@ -33,6 +33,8 @@
 .offers-table td { padding: 8px 4px; }
 
 .offers-table tr.alt { background: rgb(244,244,244); }
+.offers-table tr.sponsored { background: #FFF7C6; }
+.offers-table tr .sponsored-offer-text { display:block; color:#444; }
 .offers-table tr  td {  border-top: 1px solid rgb(211,211,211); }
 
 .center { text-align: center; }
@@ -47,4 +49,7 @@
 }
 
 
-#m-content { width: 950px; margin: 0px auto; }
+
+#m-content-wrapper { width: 950px; margin: 0px auto; }
+#m-content-wrapper  .attribution { width: 100%; text-align:center;}
+#m-content { width: 100%;}
