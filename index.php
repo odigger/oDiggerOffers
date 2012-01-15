@@ -49,8 +49,8 @@
 		                    		<p style="margin-bottom: 20px;"><strong>Phrase search ("")</strong><br>
 							By putting double quotes around a set of words, you are telling oDigger Offers to consider the exact words in that exact order without any change. oDigger Offers already uses the order and the fact that the words are together as a very strong signal and will stray from it only for a good reason, so quotes are usually unnecessary. By insisting on phrase search you might be missing good results accidentally. For example, a search for <nobr>[ <span class="code">"Alexander Bell"</span> ]</nobr> (with quotes) will miss the pages that refer to Alexander <em>G.</em> Bell.</p>
 							
-							<p><strong>The OR operator</strong><br>
-							oDigger Offers's default behavior is to consider all the words in a search. If you want to specifically allow <em>either</em> one of several words, you can use the OR operator (note that you have to type 'OR' in ALL CAPS). For example, <nobr>[ <span class="code">San Francisco Giants 2004 OR 2005</span> ]</nobr> will give you results about either one of these years, whereas <nobr>[ <span class="code">San Francisco Giants 2004 2005</span> ]</nobr> (without the OR) will show pages that include both years on the same page. The symbol <strong>|</strong> can be substituted for OR. (The AND operator, by the way, is the default, so it is not needed.)</p>
+							<p><strong>The | operator</strong><br>
+							oDigger Offers's default behavior is to consider all the words in a search. If you want to specifically allow <em>either</em> one of several words, you can use the | (pipe) operator. For example, <nobr>[ <span class="code">San Francisco Giants 2004 | 2005</span> ]</nobr> will give you results about either one of these years, whereas <nobr>[ <span class="code">San Francisco Giants 2004 2005</span> ]</nobr> (without the |) will show pages that include both years on the same page. The symbol <strong>|</strong> can be substituted for |. (The AND operator, by the way, is the default, so it is not needed.)</p>
 						</ul>
 		                	</div>
 		                </div>
