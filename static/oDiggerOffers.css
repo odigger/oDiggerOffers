@@ -2,8 +2,12 @@
 .offers_welcome { text-align: center; margin: 30px 0px 0px; }
 .offers_headline { margin: 0px; text-align: center; }
 
-.offers_form { position:relative;}
+.offers_form .offers_form_table { background: transparent url(searchform.gif) no-repeat 0; height: 85px; width: 612px; width: 102%; padding-left: 103px; padding-top: 22px; }	
+.offers_form { width: 781px; margin: 0 auto;}
+.offers_search_box {padding-left:88px;}
 .offers_form td {vertical-align:top;}
+
+.offers_form  .submit{ position:relative; background-url:(search.gif); border: 0;width: 117px;height: 23px; }
 
 .offers_form_table { margin: 20px  auto;}
 .offers_form_table td { padding-right: 5px; }
@@ -50,6 +54,6 @@
 
 
 
-#m-content-wrapper { width: 950px; margin: 0px auto; }
+#m-content-wrapper { width: 950px; margin:0 auto;}	
 #m-content-wrapper  .attribution { width: 100%; text-align:center;}
-#m-content { width: 100%;}
+#m-content { width: 100%;  margin: 0px auto; }	
