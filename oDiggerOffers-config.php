@@ -12,6 +12,8 @@ include_once('oDiggerOffers-apiFunctions.php');
 include_once('oDiggerOffers-xmlToArrayClass.php');
 include_once('oDiggerOffers-curlClass.php');
 
+$networkUrls = parse_ini_file('network_urls.ini');
+
 session_start();
 
 ?>

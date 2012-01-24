@@ -188,7 +188,8 @@ switch ($_SESSION['oDiggerOffers_order']) {
 		$offers = $getOffers['offers'][0]['offer'];
 		for ($x = 0; $x < count($offers); $x++) { 
 			$html = @array_map('htmlentities', $offers[$x]);
-			
+			if (isset($networkUrls)) $networkUrl = $networkUrls[strtolower($html['networkName'])];
+			if (isset($networkUrl) && !empty($networkUrl)) $html['networkUrl'] = $networkUrl;
 			if ($html['networkUrl']) $html['networkName'] = "<a href='{$html['networkUrl']}'>{$html['networkName']}</a>";
 			if ($html['offerUpdatedDate'] == date('Y-m-d', time() - (60*60*24))) $html['offerUpdatedDate'] = 'Yesterday';
 			if ($html['offerStartDate'] == date('Y-m-d', time() - (60*60*24))) $html['offerStartDate'] = 'Yesterday';
