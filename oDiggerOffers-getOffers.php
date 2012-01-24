@@ -187,7 +187,7 @@ switch ($_SESSION['oDiggerOffers_order']) {
 	<? if ($total_rows) { 
 		$offers = $getOffers['offers'][0]['offer'];
 		for ($x = 0; $x < count($offers); $x++) { 
-			$html = array_map('htmlentities', $offers[$x]);
+			$html = @array_map('htmlentities', $offers[$x]);
 			
 			if ($html['networkUrl']) $html['networkName'] = "<a href='{$html['networkUrl']}'>{$html['networkName']}</a>";
 			if ($html['offerUpdatedDate'] == date('Y-m-d', time() - (60*60*24))) $html['offerUpdatedDate'] = 'Yesterday';
@@ -195,8 +195,8 @@ switch ($_SESSION['oDiggerOffers_order']) {
 			if (strtotime($html['offerStartDate']) >= mktime(0,0,0,date('m'), date('d'), date('Y'))) $html['offerStartDate'] = 'Today';
 			if (strtotime($html['offerUpdatedDate']) >= mktime(0,0,0,date('m'), date('d'), date('Y'))) $html['offerUpdatedDate'] = 'Today';
 			
-			if ($html['offerUrl']) 	$html['offerName'] = "<a href='{$html['offerUrl']}'>({$html['offerNetworkId']}) {$html['offerName']}</a>";
-			else 					$html['offerName'] = "({$html['offerNetworkId']}) {$html['offerName']}";
+			if ($html['offerUrl']) 	$html['offerName'] = "<a href='{$html['offerUrl']}'>{$html['offerName']}</a>";
+			else 					$html['offerName'] = "{$html['offerName']}";
 			
 			if ($html['offerPayoutType'] == 'percent') 	$html['offerPayout'] .= '%'; 
 			else 										$html['offerPayout'] = '$'.$html['offerPayout'];
